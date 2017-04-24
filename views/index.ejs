@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+    <br/>
+    <% if (!isLoggedIn) { %> 
+    <a href="/login">Click to Login</a>
+    <div style="width: 200px;padding: 10px;border: 2px solid black; text-align: center;"> Login to See Image </div>
+    <% } else { %> 
+    <a href="/logout">Click to Logout</a>    
+    <br/><br/>
+    <img src="/mysecretpic" title="You can't hotlink this image publicly!"/>
+    <% } %>
+  </body>
+</html>
