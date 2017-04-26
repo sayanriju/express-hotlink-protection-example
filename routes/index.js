@@ -9,7 +9,7 @@ router.get('/', (req, res) => {
 
 router.get('/login', (req, res) => {
   if (req.session.userName) {
-    res.redirect('/')
+    return res.redirect('/')
   }
   const html = '<form action="/login" method="post">' +
              'Your name: <input type="text" name="userName"><br>' +
