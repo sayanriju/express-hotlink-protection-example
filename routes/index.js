@@ -39,4 +39,17 @@ router.get('/mysecretpic', checkauth, (req, res) => {
   request('https://avatars2.githubusercontent.com/u/179581?v=3&s=460').pipe(res)
 })
 
+
+// EXPERIMENT:
+router.get("/beep", function (req, res) {
+  var Readable = require('stream').Readable
+
+  var s = new Readable
+  s.push('beep')    // the string you want
+  s.push(null)      // indicates end-of-file basically - the end of the stream
+
+  res.setHeader('Content-disposition', 'attachment; filename=foo.txt');
+  s.pipe(res) // offer a file foo.txt (containing the text "beep") for download
+})
+
 module.exports = router
